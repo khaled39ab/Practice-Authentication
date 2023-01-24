@@ -1,1 +1,1 @@
-# Practing Authentication Project
+# Practicing Authentication Project
