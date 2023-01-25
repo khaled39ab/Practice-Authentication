@@ -1,0 +1,30 @@
+.btn-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.social-btn{
+    color: white;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+    width: 20rem;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: .5rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.google-btn{  
+    background-color: green;
+}
+
+.facebook-btn{  
+    background-color: blue;
+}
+
+.github-btn{  
+    background-color: black;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { GoogleAuthProvider } from "firebase/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
+import './SocialSignIn.css'
 
 const SocialSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
@@ -22,21 +23,21 @@ const SocialSignIn = () => {
         <div>
             <h1>Social Sign In</h1>
             
-            <div>
-                <button onClick={() => { signInWithGoogle() }} className=''>
-                    <span className=''>
+            <div className='btn-container'>
+                <button onClick={() => { signInWithGoogle() }} className='social-btn google-btn'>
+                    <span className='pe-2'>
                         <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
                     </span>
                     Sign In With Google
                 </button>
-                <button onClick={() => signInWithFacebook()} className=''>
-                    <span className=''>
+                <button onClick={() => signInWithFacebook()} className='social-btn facebook-btn'>
+                    <span className='pe-2'>
                         <FontAwesomeIcon icon={faFacebook} />
                     </span>
                     Sign In With Facebook
                 </button>
-                <button onClick={() => signInWithGithub()} className=''>
-                    <span className=''>
+                <button onClick={() => signInWithGithub()} className='social-btn github-btn'>
+                    <span className='pe-2'>
                         <FontAwesomeIcon icon={faGithub} />
                     </span>
                     Sign In With Github
