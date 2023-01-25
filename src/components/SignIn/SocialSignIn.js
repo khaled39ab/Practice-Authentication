@@ -23,21 +23,20 @@ const SocialSignIn = () => {
             <h1>Social Sign In</h1>
             
             <div>
-                <button onClick={() => { signInWithGoogle() }} className='btn btn-info mx-auto w-50
-            d-block mb-2'>
-                    <span className='pe-2'>
+                <button onClick={() => { signInWithGoogle() }} className=''>
+                    <span className=''>
                         <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
                     </span>
                     Sign In With Google
                 </button>
-                <button onClick={() => signInWithFacebook()} className='btn btn-primary mx-auto w-50 d-block mb-2'>
-                    <span className='pe-2'>
+                <button onClick={() => signInWithFacebook()} className=''>
+                    <span className=''>
                         <FontAwesomeIcon icon={faFacebook} />
                     </span>
                     Sign In With Facebook
                 </button>
-                <button onClick={() => signInWithGithub()} className='btn btn-dark mx-auto w-50 d-block'>
-                    <span className='pe-2'>
+                <button onClick={() => signInWithGithub()} className=''>
+                    <span className=''>
                         <FontAwesomeIcon icon={faGithub} />
                     </span>
                     Sign In With Github
