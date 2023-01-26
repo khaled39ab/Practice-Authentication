@@ -3,6 +3,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import './SocialSignIn.css'
+import SignIn from './SignIn';
 
 const SocialSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
@@ -21,6 +22,7 @@ const SocialSignIn = () => {
 
     return (
         <div>
+            <SignIn />
             <h1>Social Sign In</h1>
             
             <div className='btn-container'>
