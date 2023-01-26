@@ -1,4 +1,7 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
+import './SignIn.css'
 
 const SignIn = () => {
     return (
@@ -22,9 +25,15 @@ const SignIn = () => {
                     <div class="social-login">
                         <h3>log in via</h3>
                         <div class="social-icons">
-                            <a href="#" class="social-login__icon fab fa-instagram"></a>
-                            <a href="#" class="social-login__icon fab fa-facebook"></a>
-                            <a href="#" class="social-login__icon fab fa-twitter"></a>
+                            <span className='social-login__icon'>
+                                <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
+                            </span>
+                            <span className='social-login__icon'>
+                                <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
+                            </span>
+                            <span className='social-login__icon'>
+                                <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
+                            </span>
                         </div>
                     </div>
                 </div>
