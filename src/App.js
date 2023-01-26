@@ -1,11 +1,11 @@
 import './App.css';
-import SocialSignIn from './components/SignIn/SocialSignIn';
+import SignIn from './components/SignIn/SignIn';
 
 function App() {
   return (
     <div className="App">
       <h1>Authentication Practice</h1>
-      <SocialSignIn />
+      <SignIn />
     </div>
   );
 }
