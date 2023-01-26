@@ -2,6 +2,7 @@ import React from 'react';
 import { GoogleAuthProvider } from "firebase/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
+import './SocialSignIn.css'
 
 const SocialSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
@@ -21,27 +22,22 @@ const SocialSignIn = () => {
     return (
         <div>
             <h1>Social Sign In</h1>
-            <div className='d-flex align-items-center'>
-                <div style={{ height: '1px' }} className='bg-primary w-50'></div>
-                <p className='mx-3 mt-2'>or</p>
-                <div style={{ height: '1px', color: 'black' }} className='bg-primary w-50'></div>
-            </div>
-            <div>
-                <button onClick={() => { signInWithGoogle() }} className='btn btn-info mx-auto w-50
-            d-block mb-2'>
-                    <span className='pe-2'>
+            
+            <div className='btn-container'>
+                <button onClick={() => { signInWithGoogle() }} className='social-btn' id='google-btn'>
+                    <span className='btn-icon'>
                         <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
                     </span>
                     Sign In With Google
                 </button>
-                <button onClick={() => signInWithFacebook()} className='btn btn-primary mx-auto w-50 d-block mb-2'>
-                    <span className='pe-2'>
+                <button onClick={() => signInWithFacebook()} className='social-btn' id='facebook-btn'>
+                    <span className='btn-icon'>
                         <FontAwesomeIcon icon={faFacebook} />
                     </span>
                     Sign In With Facebook
                 </button>
-                <button onClick={() => signInWithGithub()} className='btn btn-dark mx-auto w-50 d-block'>
-                    <span className='pe-2'>
+                <button onClick={() => signInWithGithub()} className='social-btn' id='github-btn'>
+                    <span className='btn-icon'>
                         <FontAwesomeIcon icon={faGithub} />
                     </span>
                     Sign In With Github
