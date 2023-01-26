@@ -35,6 +35,7 @@ const SignIn = () => {
                                 <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
                             </span>
                         </div>
+                        <h4 className='new-acc'>Create An Account</h4>
                     </div>
                 </div>
                 <div class="screen__background">
