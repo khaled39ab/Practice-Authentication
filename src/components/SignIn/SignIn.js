@@ -2,9 +2,33 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faArrowRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
+import app from '../../firebase/firebase.init';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import './SignIn.css'
 
 const SignIn = () => {
+    const auth = getAuth(app);
+    const GoogleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        signInWithPopup(auth, GoogleProvider)
+        .then( res => {
+            const user = res.user;
+            console.log(user);
+        })
+        .catch( err => {
+            console.log(err.message);
+        })
+    }
+
+    const handleFacebookSignIn = () => {
+
+    }
+
+    const handleGithubSignIn = () => {
+
+    }
+
     return (
         <div className="signIn-container">
             <div className="signIn-screen">
@@ -28,17 +52,17 @@ const SignIn = () => {
                     <div className="signIn-social">
                         <h3>Sign in via</h3>
                         <div className="signIn-social-icons">
-                            <span className='signIn-social__icon'>
+                            <span className='signIn-social__icon' onClick={handleGoogleSignIn}>
                                 <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
                             </span>
-                            <span className='signIn-social__icon'>
+                            <span className='signIn-social__icon' onClick={handleFacebookSignIn}>
                                 <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
                             </span>
-                            <span className='signIn-social__icon'>
+                            <span className='signIn-social__icon' onClick={handleGithubSignIn}>
                                 <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
                             </span>
                         </div>
-                        <h4 className='new-acc'>Create An Account</h4>
+                        <h4 className='signIn-new-acc'>Create An Account?</h4>
                     </div>
                 </div>
                 <div className="signIn-screen__background">
