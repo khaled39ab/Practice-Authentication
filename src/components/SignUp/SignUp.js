@@ -27,7 +27,7 @@ const SignUp = () => {
                         </div>
                         <button className="button signUp__submit">
                             <span className="button__text">Sign Up</span>
-                            <FontAwesomeIcon icon={faArrowRight} className="signUp-button__icon" />
+                            <FontAwesomeIcon icon={faArrowRight} className="button__icon" />
                         </button>
                     </form>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faArrowRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faAnglesRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import app from '../../firebase/firebase.init';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import './SignIn.css'
@@ -45,7 +45,7 @@ const SignIn = () => {
                         <button className="signIn-button signIn__submit">
                             <span className="signIn-button__text">Sign In Now</span>
                             <span className="signIn-button__icon">
-                                <FontAwesomeIcon icon={faArrowRight} />
+                                <FontAwesomeIcon icon={faAnglesRight} />
                             </span>
                         </button>
                     </form>
