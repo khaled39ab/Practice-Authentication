@@ -6,46 +6,46 @@ import './SignIn.css'
 
 const SignIn = () => {
     return (
-        <div class="signIn-container">
-            <div class="signIn-screen">
-                <div class="signIn-screen__content">
-                    <form class="signIn-login">
-                        <div class="signIn-login__field">
-                            <i class="signIn-login__icon fas fa-user"></i>
-                            <input type="text" class="signIn-login__input" placeholder="User name / Email" />
+        <div className="signIn-container">
+            <div className="signIn-screen">
+                <div className="signIn-screen__content">
+                    <form className="signIn">
+                        <div className="signIn__field">
+                            <i className="signIn__icon fas fa-user"></i>
+                            <input type="text" className="signIn__input" placeholder="User name / Email" />
                         </div>
-                        <div class="signIn-login__field">
-                            <i class="signIn-login__icon fas fa-lock"></i>
-                            <input type="password" class="signIn-login__input" placeholder="Password" />
+                        <div className="signIn__field">
+                            <i className="signIn__icon fas fa-lock"></i>
+                            <input type="password" className="signIn__input" placeholder="Password" />
                         </div>
-                        <button class="signIn-button login__submit">
-                            <span class="signIn-button__text">Sign In Now</span>
-                            <span class="signIn-button__icon">
+                        <button className="signIn-button login__submit">
+                            <span className="signIn-button__text">Sign In Now</span>
+                            <span className="signIn-button__icon">
                                 <FontAwesomeIcon icon={faArrowRight} /> 
                             </span>
                         </button>
                     </form>
-                    <div class="signIn-social-login">
+                    <div className="signIn-social">
                         <h3>Sign in via</h3>
-                        <div class="signIn-social-icons">
-                            <span className='social-login__icon'>
+                        <div className="signIn-social-icons">
+                            <span className='signIn-social__icon'>
                                 <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
                             </span>
-                            <span className='social-login__icon'>
+                            <span className='signIn-social__icon'>
                                 <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
                             </span>
-                            <span className='social-login__icon'>
+                            <span className='signIn-social__icon'>
                                 <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
                             </span>
                         </div>
                         <h4 className='new-acc'>Create An Account</h4>
                     </div>
                 </div>
-                <div class="signIn-screen__background">
-                    <span class="signIn-screen__background__shape screen__background__shape4"></span>
-                    <span class="signIn-screen__background__shape screen__background__shape3"></span>
-                    <span class="signIn-screen__background__shape screen__background__shape2"></span>
-                    <span class="signIn-screen__background__shape screen__background__shape1"></span>
+                <div className="signIn-screen__background">
+                    <span className="signIn-screen__background__shape screen__background__shape4"></span>
+                    <span className="signIn-screen__background__shape screen__background__shape3"></span>
+                    <span className="signIn-screen__background__shape screen__background__shape2"></span>
+                    <span className="signIn-screen__background__shape screen__background__shape1"></span>
                 </div>
             </div>
         </div >
