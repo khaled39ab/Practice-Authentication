@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import './SignIn.css'
 
 const SignIn = () => {
@@ -11,17 +11,17 @@ const SignIn = () => {
                 <div className="signIn-screen__content">
                     <form className="signIn">
                         <div className="signIn__field">
-                            <i className="signIn__icon fas fa-user"></i>
+                            <FontAwesomeIcon icon={faUser} className="signIn__icon" />
                             <input type="text" className="signIn__input" placeholder="User name / Email" />
                         </div>
                         <div className="signIn__field">
-                            <i className="signIn__icon fas fa-lock"></i>
+                            <FontAwesomeIcon icon={faLock} className="signIn__icon" />
                             <input type="password" className="signIn__input" placeholder="Password" />
                         </div>
-                        <button className="signIn-button login__submit">
+                        <button className="signIn-button signIn__submit">
                             <span className="signIn-button__text">Sign In Now</span>
                             <span className="signIn-button__icon">
-                                <FontAwesomeIcon icon={faArrowRight} /> 
+                                <FontAwesomeIcon icon={faArrowRight} />
                             </span>
                         </button>
                     </form>
