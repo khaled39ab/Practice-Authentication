@@ -1,4 +1,4 @@
-@import url('https://fonts.signIn-googleapis.signIn-com/css?family=Raleway:400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
 * {
 	box-sizing: border-box;
@@ -11,14 +11,14 @@ body {
 	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
 }
 
-.signIn-container {
+.container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	min-height: 100vh;
 }
 
-.signIn-screen {		
+.screen {		
 	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
 	position: relative;	
 	height: 600px;
@@ -26,13 +26,13 @@ body {
 	box-shadow: 0px 0px 24px #5C5696;
 }
 
-.signIn-screen__content {
+.screen__content {
 	z-index: 1;
 	position: relative;	
 	height: 100%;
 }
 
-.signIn-screen__background {		
+.screen__background {		
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -43,12 +43,12 @@ body {
 	clip-path: inset(0 0 0 0);	
 }
 
-.signIn-screen__background__shape {
+.screen__background__shape {
 	transform: rotate(45deg);
 	position: absolute;
 }
 
-.signIn-screen__background__shape1 {
+.screen__background__shape1 {
 	height: 520px;
 	width: 520px;
 	background: #FFF;	
@@ -57,7 +57,7 @@ body {
 	border-radius: 0 72px 0 0;
 }
 
-.signIn-screen__background__shape2 {
+.screen__background__shape2 {
 	height: 220px;
 	width: 220px;
 	background: #6C63AC;	
@@ -66,7 +66,7 @@ body {
 	border-radius: 32px;
 }
 
-.signIn-screen__background__shape3 {
+.screen__background__shape3 {
 	height: 540px;
 	width: 190px;
 	background: linear-gradient(270deg, #5D54A4, #6A679E);
@@ -75,7 +75,7 @@ body {
 	border-radius: 32px;
 }
 
-.signIn-screen__background__shape4 {
+.screen__background__shape4 {
 	height: 400px;
 	width: 200px;
 	background: #7E7BB9;	
@@ -84,24 +84,24 @@ body {
 	border-radius: 60px;
 }
 
-.signIn-login {
+.login {
 	width: 320px;
 	padding: 30px;
-	padding-top: 156px;
+	padding-top: 60px;
 }
 
-.signIn-login__field {
+.login__field {
 	padding: 20px 0px;	
 	position: relative;	
 }
 
-.signIn-login__icon {
+.login__icon {
 	position: absolute;
 	top: 30px;
 	color: #7875B5;
 }
 
-.signIn-login__input {
+.login__input {
 	border: none;
 	border-bottom: 2px solid #D1D1D4;
 	background: none;
@@ -109,17 +109,17 @@ body {
 	padding-left: 24px;
 	font-weight: 700;
 	width: 75%;
-	transition: .signIn-2s;
+	transition: .2s;
 }
 
-.signIn-login__input:active,
-.signIn-login__input:focus,
-.signIn-login__input:hover {
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
 	outline: none;
 	border-bottom-color: #6A679E;
 }
 
-.signIn-login__submit {
+.login__submit {
 	background: #fff;
 	font-size: 14px;
 	margin-top: 30px;
@@ -134,23 +134,23 @@ body {
 	color: #4C489D;
 	box-shadow: 0px 2px 2px #5C5696;
 	cursor: pointer;
-	transition: .signIn-2s;
+	transition: .2s;
 }
 
-.signIn-login__submit:active,
-.signIn-login__submit:focus,
-.signIn-login__submit:hover {
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
 	border-color: #6A679E;
 	outline: none;
 }
 
-.signIn-button__icon {
+.button__icon {
 	font-size: 24px;
 	margin-left: auto;
 	color: #7875B5;
 }
 
-.signIn-social-login {	
+.social-login {	
 	position: absolute;
 	height: 140px;
 	width: 160px;
@@ -160,13 +160,13 @@ body {
 	color: #fff;
 }
 
-.signIn-social-icons {
+.social-icons {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.signIn-social-login__icon {
+.social-login__icon {
     font-size: larger;
 	padding: 20px 10px;
 	color: #fff;
@@ -175,11 +175,11 @@ body {
     cursor: pointer;
 }
 
-.signIn-social-login__icon:hover {
-	transform: scale(1.signIn-5);	
+.social-login__icon:hover {
+	transform: scale(1.5);	
 }
 
-.signIn-new-acc {
+.new-acc {
     color: white;
     cursor: pointer;
     text-decoration: underline;

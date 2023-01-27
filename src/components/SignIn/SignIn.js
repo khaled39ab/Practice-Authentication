@@ -1,30 +1,33 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import './SignIn.css'
 
 const SignIn = () => {
     return (
-        <div class="container">
-            <div class="screen">
-                <div class="screen__content">
-                    <form class="login">
-                        <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
-                            <input type="text" class="login__input" placeholder="User name / Email" />
+        <div class="signIn-container">
+            <div class="signIn-screen">
+                <div class="signIn-screen__content">
+                    <form class="signIn-login">
+                        <div class="signIn-login__field">
+                            <i class="signIn-login__icon fas fa-user"></i>
+                            <input type="text" class="signIn-login__input" placeholder="User name / Email" />
                         </div>
-                        <div class="login__field">
-                            <i class="login__icon fas fa-lock"></i>
-                            <input type="password" class="login__input" placeholder="Password" />
+                        <div class="signIn-login__field">
+                            <i class="signIn-login__icon fas fa-lock"></i>
+                            <input type="password" class="signIn-login__input" placeholder="Password" />
                         </div>
-                        <button class="button login__submit">
-                            <span class="button__text">Log In Now</span>
-                            <i class="button__icon fas fa-chevron-right"></i>
+                        <button class="signIn-button login__submit">
+                            <span class="signIn-button__text">Sign In Now</span>
+                            <span class="signIn-button__icon">
+                                <FontAwesomeIcon icon={faArrowRight} /> 
+                            </span>
                         </button>
                     </form>
-                    <div class="social-login">
-                        <h3>log in via</h3>
-                        <div class="social-icons">
+                    <div class="signIn-social-login">
+                        <h3>Sign in via</h3>
+                        <div class="signIn-social-icons">
                             <span className='social-login__icon'>
                                 <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
                             </span>
@@ -38,14 +41,14 @@ const SignIn = () => {
                         <h4 className='new-acc'>Create An Account</h4>
                     </div>
                 </div>
-                <div class="screen__background">
-                    <span class="screen__background__shape screen__background__shape4"></span>
-                    <span class="screen__background__shape screen__background__shape3"></span>
-                    <span class="screen__background__shape screen__background__shape2"></span>
-                    <span class="screen__background__shape screen__background__shape1"></span>
+                <div class="signIn-screen__background">
+                    <span class="signIn-screen__background__shape screen__background__shape4"></span>
+                    <span class="signIn-screen__background__shape screen__background__shape3"></span>
+                    <span class="signIn-screen__background__shape screen__background__shape2"></span>
+                    <span class="signIn-screen__background__shape screen__background__shape1"></span>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
