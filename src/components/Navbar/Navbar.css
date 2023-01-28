@@ -23,6 +23,10 @@ body {
   height: 100%;
 }
 
+.logo{
+  font-weight: 900;
+}
+
 .nav-elements ul {
   display: flex;
   justify-content: space-between;
@@ -35,14 +39,14 @@ body {
 
 .nav-elements ul a {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 700;
   color: #2f234f;
   text-decoration: none;
 }
 
 .nav-elements ul a.active {
   color: #574c4c;
-  font-weight: 500;
+  font-weight: 800;
   position: relative;
 }
 
