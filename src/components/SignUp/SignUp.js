@@ -1,6 +1,7 @@
 import { faArrowRight, faAt, faLock, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './SignUp.css'
 
 const SignUp = () => {
@@ -30,6 +31,10 @@ const SignUp = () => {
                             <FontAwesomeIcon icon={faArrowRight} className="button__icon" />
                         </button>
                     </form>
+                    <div className='signUp-new-acc'>
+                        <h4 style={{marginBottom: '.5rem'}}>Have An Account?</h4>
+                        <NavLink to='/signIn' className='link-signIn'>Sign In</NavLink>
+                    </div>
                 </div>
                 <div className="screen__background">
                     <span className="screen__background__shape screen__background__shape4"></span>

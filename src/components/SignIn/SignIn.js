@@ -5,6 +5,7 @@ import { faAnglesRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons
 import app from '../../firebase/firebase.init';
 import { FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import './SignIn.css'
+import { NavLink } from 'react-router-dom';
 
 const SignIn = () => {
     const auth = getAuth(app);
@@ -94,7 +95,9 @@ const SignIn = () => {
                                 <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
                             </span>
                         </div>
-                        <h4 className='signIn-new-acc'>Create An Account?</h4>
+                        <div>
+                            <NavLink to='/signUp'><h4 className='signIn-new-acc'>Create An Account?</h4></NavLink>
+                        </div>
                     </div>
                 </div>
                 <div className="signIn-screen__background">

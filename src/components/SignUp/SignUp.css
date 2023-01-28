@@ -149,3 +149,21 @@ body {
 	margin-left: auto;
 	color: #7875B5;
 }
+
+.signUp-new-acc {
+    color: white;
+    cursor: pointer;
+	text-align: right;
+	margin-right: 2rem;
+}
+
+.link-signIn{
+	font-weight: bolder;
+	text-decoration: underline;
+	color: white;
+	text-align: left;
+}
+
+.link-signIn:hover{
+	color: yellow;
+}
