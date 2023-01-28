@@ -3,14 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faAnglesRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import app from '../../firebase/firebase.init';
-import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import './SignIn.css'
 
 const SignIn = () => {
     const auth = getAuth(app);
     const GoogleProvider = new GoogleAuthProvider();
     const GithubProvider = new GithubAuthProvider();
+    const FacebookProvider = new FacebookAuthProvider();
 
+    /* 
+    ===============================================================================
+    *************************         Google Auth         *************************
+    ===============================================================================
+    */
     const handleGoogleSignIn = () => {
         signInWithPopup(auth, GoogleProvider)
             .then(res => {
@@ -22,10 +28,28 @@ const SignIn = () => {
             })
     }
 
+    /* 
+    ===============================================================================
+    *************************        Facebook Auth        *************************
+    ===============================================================================
+    */
     const handleFacebookSignIn = () => {
+        signInWithPopup(auth, FacebookProvider)
+            .then(res => {
+                const user = res.user;
+                console.log(user);
+            })
+            .catch(err => {
+                console.error(err.message);
+            })
 
     }
 
+    /* 
+    ===============================================================================
+    *************************         Github Auth         *************************
+    ===============================================================================
+    */
     const handleGithubSignIn = () => {
         signInWithPopup(auth, GithubProvider)
             .then(res => {
