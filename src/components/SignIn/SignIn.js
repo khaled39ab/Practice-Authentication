@@ -3,22 +3,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faAnglesRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import app from '../../firebase/firebase.init';
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import './SignIn.css'
 
 const SignIn = () => {
     const auth = getAuth(app);
     const GoogleProvider = new GoogleAuthProvider();
+    const GithubProvider = new GithubAuthProvider();
 
     const handleGoogleSignIn = () => {
         signInWithPopup(auth, GoogleProvider)
-        .then( res => {
-            const user = res.user;
-            console.log(user);
-        })
-        .catch( err => {
-            console.log(err.message);
-        })
+            .then(res => {
+                const user = res.user;
+                console.log(user);
+            })
+            .catch(err => {
+                console.error(err.message);
+            })
     }
 
     const handleFacebookSignIn = () => {
@@ -26,7 +27,14 @@ const SignIn = () => {
     }
 
     const handleGithubSignIn = () => {
-
+        signInWithPopup(auth, GithubProvider)
+            .then(res => {
+                const user = res.user;
+                console.log(user);
+            })
+            .catch(err => {
+                console.error(err.message);
+            })
     }
 
     return (
