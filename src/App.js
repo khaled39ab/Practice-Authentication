@@ -5,9 +5,9 @@ import SignUp from './components/SignUp/SignUp';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar />
-      <h1 style={{color: 'white'}}>Authentication Practice</h1>
+      <h1 style={{color: 'white', textAlign: 'center'}}>Authentication Practice</h1>
       <SignIn />
       <SignUp />
     </div>

@@ -7,7 +7,13 @@ body {
   background-color: #fcfcfc;
 }
 
-.container {
+.navbar {
+  height: 60px;
+  background-color: #fef7e5;
+  position: relative;
+}
+
+.navbar-container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 15px;
@@ -15,18 +21,6 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 100%;
-}
-
-.navbar {
-  height: 60px;
-  background-color: #fef7e5;
-  position: relative;
-}
-
-.logo {
-}
-
-.nav-elements {
 }
 
 .nav-elements ul {

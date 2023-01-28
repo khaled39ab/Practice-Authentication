@@ -5,16 +5,28 @@ import './Navbar.css'
 const Navbar = () => {
     return (
         <nav className="navbar">
-            <div className="container">
+            <div className="navbar-container">
                 <div className="logo">
                     LOGO
                 </div>
                 <div className="nav-elements">
-                    {/* <NavLink to="/">Home</NavLink> */}
-                    {/* <NavLink to="/blog">Blog</NavLink> */}
-                    {/* <NavLink to="/projects">Projects</NavLink> */}
-                    {/* <NavLink to="/about">About</NavLink> */}
-                    {/* <NavLink to="/contact">Contact</NavLink> */}
+                    <ul>
+                        <li>
+                            <NavLink to="/">Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/blog">Blog</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/projects">Projects</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/about">About</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/contact">Contact</NavLink>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
