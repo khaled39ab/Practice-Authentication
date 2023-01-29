@@ -12,11 +12,18 @@ const SignUp = () => {
 
     const handlePasswordBlur = (e) => {
         const password = e.target.value;
-        if (!/[a-zA-Z0-9]{8,}/.test(password)) {
+        if (!/[a-zA-Z0-9@$!%*?&]{6,}/.test(password)) {
             setError(true)
+        } else {
+            setError(false)
         }
+    }
 
-        if (/[a-zA-Z0-9]{8,}/.test(password)) {
+    const handleEmailBlur = (e) => {
+        const password = e.target.value;
+        if (!/[a-zA-Z0-9@.]{6,}/.test(password)) {
+            setError(true)
+        } else {
             setError(false)
         }
     }
@@ -54,13 +61,13 @@ const SignUp = () => {
                         </div>
                         <div className="signUp__field">
                             <FontAwesomeIcon icon={faAt} className="signIn__icon" />
-                            <input type="text" name='email' className="signUp__input" placeholder="Enter Your Email" required />
+                            <input type="text" name='email' className="signUp__input" placeholder="Enter Your Email" onBlur={handleEmailBlur} required />
                         </div>
                         <div className="signUp__field">
                             <FontAwesomeIcon icon={faLock} className="signIn__icon" />
                             <input type="password" name='password' className="signUp__input" placeholder="Enter Password" required onBlur={handlePasswordBlur} />
                             {
-                                error && <p style={{ color: 'red' }}><small>Password Must at least 6 Character</small></p>
+                                error && <p style={{ color: 'red' }}><small>Password Must be 6 Character</small></p>
                             }
                         </div>
                         <div className="signUp__field">
