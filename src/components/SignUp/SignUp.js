@@ -9,19 +9,11 @@ const auth = getAuth();
 
 const SignUp = () => {
     const [error, setError] = useState(false);
+    const [signUpError, setSignUpError] = useState('');
 
     const handlePasswordBlur = (e) => {
         const password = e.target.value;
         if (!/[a-zA-Z0-9@$!%*?&]{6,}/.test(password)) {
-            setError(true)
-        } else {
-            setError(false)
-        }
-    }
-
-    const handleEmailBlur = (e) => {
-        const password = e.target.value;
-        if (!/[a-zA-Z0-9@.]{6,}/.test(password)) {
             setError(true)
         } else {
             setError(false)
@@ -38,14 +30,14 @@ const SignUp = () => {
 
         createUserWithEmailAndPassword(auth, email, password)
             .then(res => {
-                const user = res.user;
+                // const user = res.user;
                 updateProfile(auth.currentUser, {
                     displayName: name, phoneNumber: phone //can not add/store phone number without authenticate with phone number
                 })
-                console.log(user);
+                // console.log(user);
             })
             .catch(err => {
-                console.error(err.message);
+                setSignUpError(err.message);
             })
 
         form.reset();
@@ -54,6 +46,7 @@ const SignUp = () => {
         <div className="container">
             <div className="screen">
                 <div className="screen__content">
+
                     <form className="signUp" onSubmit={handleSignUp}>
                         <div className="signUp__field">
                             <FontAwesomeIcon icon={faUser} className="signIn__icon" />
@@ -61,7 +54,7 @@ const SignUp = () => {
                         </div>
                         <div className="signUp__field">
                             <FontAwesomeIcon icon={faAt} className="signIn__icon" />
-                            <input type="text" name='email' className="signUp__input" placeholder="Enter Your Email" onBlur={handleEmailBlur} required />
+                            <input type="text" name='email' className="signUp__input" placeholder="Enter Your Email" required />
                         </div>
                         <div className="signUp__field">
                             <FontAwesomeIcon icon={faLock} className="signIn__icon" />
@@ -74,11 +67,15 @@ const SignUp = () => {
                             <FontAwesomeIcon icon={faPhone} className="signIn__icon" />
                             <input type="number" name='phone' className="signUp__input" placeholder="Enter Your Number" required />
                         </div>
+
+                        {signUpError}
+
                         <button type='submit' className="button signUp__submit">
                             <span className="button__text">Sign Up</span>
                             <FontAwesomeIcon icon={faArrowRight} className="button__icon" />
                         </button>
                     </form>
+
                     <div className='signUp-new-acc'>
                         <h4 style={{ marginBottom: '.5rem' }}>Have An Account?</h4>
                         <NavLink to='/signIn' className='link-signIn'>Sign In</NavLink>
