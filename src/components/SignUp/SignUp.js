@@ -19,7 +19,9 @@ const SignUp = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(res => {
                 const user = res.user;
-                
+                updateProfile(auth.currentUser, {
+                    displayName: name, phoneNumber: phone //can not add/store phone number without authenticate with phone number
+                })
                 console.log(user);
             })
             .catch(err => {
