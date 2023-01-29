@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faAnglesRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import app from '../../firebase/firebase.init';
-import { FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from "firebase/auth";
+import { FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import './SignIn.css'
 import { NavLink } from 'react-router-dom';
 
@@ -75,26 +75,43 @@ const SignIn = () => {
                 .then(() => {
                     alert("Email Send. Check Your Email")
                 })
-        } else{
+        } else {
             alert('Enter Your Email')
         }
+    }
 
+    /* 
+    ===============================================================================
+    *************************           Sign In           *************************
+    ===============================================================================
+    */
+    const handleSignIn = e => {
+        e.preventDefault();
+        const password = e.target.password.value;
+        signInWithEmailAndPassword(auth, email, password)
+            .then(res => {
+                const user = res.user;
+                console.log(user);
+            })
+            .catch(err => {
+                console.error(err.message);
+            })
     }
 
     return (
         <div className="signIn-container">
             <div className="signIn-screen">
                 <div className="signIn-screen__content">
-                    <form className="signIn">
+                    <form className="signIn" onSubmit={handleSignIn}>
                         <div className="signIn__field">
                             <FontAwesomeIcon icon={faUser} className="signIn__icon" />
                             <input type="text" name='email' className="signIn__input" placeholder="User name / Email" onChange={e => setEmail(e.target.value)} />
                         </div>
                         <div className="signIn__field">
                             <FontAwesomeIcon icon={faLock} className="signIn__icon" />
-                            <input type="password" className="signIn__input" placeholder="Password" />
+                            <input type="password" name='password' className="signIn__input" placeholder="Password" />
                         </div>
-                        <button className="signIn-button signIn__submit">
+                        <button className="signIn-button signIn__submit" type='submit'>
                             <span className="signIn-button__text">Sign In Now</span>
                             <span className="signIn-button__icon">
                                 <FontAwesomeIcon icon={faAnglesRight} />
