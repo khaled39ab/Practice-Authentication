@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faAnglesRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import app from '../../firebase/firebase.init';
-import { FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from "firebase/auth";
 import './SignIn.css'
 import { NavLink } from 'react-router-dom';
 
@@ -62,6 +62,25 @@ const SignIn = () => {
             })
     }
 
+    /* 
+    ===============================================================================
+    *************************       Forget Password       *************************
+    ===============================================================================
+    */
+    const [email, setEmail] = useState('');
+
+    const handleForgetPassword = () => {
+        if (email) {
+            sendPasswordResetEmail(auth, email)
+                .then(() => {
+                    alert("Email Send. Check Your Email")
+                })
+        } else{
+            alert('Enter Your Email')
+        }
+
+    }
+
     return (
         <div className="signIn-container">
             <div className="signIn-screen">
@@ -69,7 +88,7 @@ const SignIn = () => {
                     <form className="signIn">
                         <div className="signIn__field">
                             <FontAwesomeIcon icon={faUser} className="signIn__icon" />
-                            <input type="text" className="signIn__input" placeholder="User name / Email" />
+                            <input type="text" name='email' className="signIn__input" placeholder="User name / Email" onChange={e => setEmail(e.target.value)} />
                         </div>
                         <div className="signIn__field">
                             <FontAwesomeIcon icon={faLock} className="signIn__icon" />
@@ -98,6 +117,9 @@ const SignIn = () => {
                         <div>
                             <NavLink to='/signUp'><h4 className='signIn-new-acc'>Create An Account?</h4></NavLink>
                         </div>
+                    </div>
+                    <div className='forget-password' onClick={handleForgetPassword}>
+                        <p>Forget Password?</p>
                     </div>
                 </div>
                 <div className="signIn-screen__background">

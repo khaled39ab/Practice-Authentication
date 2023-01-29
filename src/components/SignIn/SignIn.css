@@ -183,3 +183,11 @@ body {
     cursor: pointer;
     text-decoration: underline;
 }
+
+.forget-password{
+	color: rgb(243, 201, 201);
+	font-weight: 700;
+	text-decoration: underline;
+	text-align: right;
+	cursor: pointer;
+}
