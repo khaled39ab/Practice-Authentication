@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faAnglesRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
-import app from '../../firebase/firebase.init';
-import { FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import './SignIn.css'
 import { NavLink } from 'react-router-dom';
+import auth from '../../firebase/firebase.init';
 
 const SignIn = () => {
-    const auth = getAuth(app);
+
     const GoogleProvider = new GoogleAuthProvider();
     const GithubProvider = new GithubAuthProvider();
     const FacebookProvider = new FacebookAuthProvider();

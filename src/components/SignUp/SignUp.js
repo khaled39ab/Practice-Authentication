@@ -1,16 +1,20 @@
 import { faArrowRight, faAt, faLock, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { createUserWithEmailAndPassword, getAuth, sendEmailVerification, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import auth from '../../firebase/firebase.init';
 import './SignUp.css'
-
-const auth = getAuth();
 
 const SignUp = () => {
     const [error, setError] = useState(false);
     const [signUpError, setSignUpError] = useState('');
 
+    /* 
+    ===============================================================================
+    *************************     Password validation     *************************
+    ===============================================================================
+    */
     const handlePasswordBlur = (e) => {
         const password = e.target.value;
         if (!/[a-zA-Z0-9@$!%*?&]{6,}/.test(password)) {
@@ -20,6 +24,11 @@ const SignUp = () => {
         }
     }
 
+    /* 
+    ===============================================================================
+    *************************         Sign Up User        *************************
+    ===============================================================================
+    */
     const handleSignUp = e => {
         e.preventDefault();
         const form = e.target;
@@ -42,6 +51,7 @@ const SignUp = () => {
 
         form.reset();
     }
+
     return (
         <div className="container">
             <div className="screen">
@@ -81,6 +91,7 @@ const SignUp = () => {
                         <NavLink to='/signIn' className='link-signIn'>Sign In</NavLink>
                     </div>
                 </div>
+
                 <div className="screen__background">
                     <span className="screen__background__shape screen__background__shape4"></span>
                     <span className="screen__background__shape screen__background__shape3"></span>
