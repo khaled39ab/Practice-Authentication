@@ -1,6 +1,6 @@
 import { faArrowRight, faAt, faLock, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, sendEmailVerification, updateProfile } from 'firebase/auth';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './SignUp.css'
@@ -30,11 +30,11 @@ const SignUp = () => {
 
         createUserWithEmailAndPassword(auth, email, password)
             .then(res => {
-                // const user = res.user;
                 updateProfile(auth.currentUser, {
                     displayName: name, phoneNumber: phone //can not add/store phone number without authenticate with phone number
                 })
-                // console.log(user);
+                sendEmailVerification(auth.currentUser);
+                alert('Check Your Email and Verify')
             })
             .catch(err => {
                 setSignUpError(err.message);

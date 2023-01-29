@@ -86,13 +86,13 @@ const SignIn = () => {
                         <h3>Sign in via</h3>
                         <div className="signIn-social-icons">
                             <span className='signIn-social__icon' onClick={handleGoogleSignIn}>
-                                <FontAwesomeIcon style={{color: 'cyan'}} icon={faGoogle}></FontAwesomeIcon>
+                                <FontAwesomeIcon style={{ color: 'cyan' }} icon={faGoogle} title='Google'></FontAwesomeIcon>
                             </span>
                             <span className='signIn-social__icon' onClick={handleFacebookSignIn}>
-                                <FontAwesomeIcon style={{color: 'blue'}} icon={faFacebook}></FontAwesomeIcon>
+                                <FontAwesomeIcon style={{ color: 'blue' }} icon={faFacebook} title="Facebook"></FontAwesomeIcon>
                             </span>
                             <span className='signIn-social__icon' onClick={handleGithubSignIn}>
-                                <FontAwesomeIcon style={{color: 'black'}} icon={faGithub}></FontAwesomeIcon>
+                                <FontAwesomeIcon style={{ color: 'black' }} icon={faGithub} title='Github'></FontAwesomeIcon>
                             </span>
                         </div>
                         <div>
