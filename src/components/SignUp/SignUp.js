@@ -1,12 +1,25 @@
 import { faArrowRight, faAt, faLock, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './SignUp.css'
 
+const auth = getAuth();
+
 const SignUp = () => {
-    const auth = getAuth();
+    const [error, setError] = useState(false);
+
+    const handlePasswordBlur = (e) => {
+        const password = e.target.value;
+        if (!/[a-zA-Z0-9]{8,}/.test(password)) {
+            setError(true)
+        }
+
+        if (/[a-zA-Z0-9]{8,}/.test(password)) {
+            setError(false)
+        }
+    }
 
     const handleSignUp = e => {
         e.preventDefault();
@@ -45,7 +58,10 @@ const SignUp = () => {
                         </div>
                         <div className="signUp__field">
                             <FontAwesomeIcon icon={faLock} className="signIn__icon" />
-                            <input type="password" name='password' className="signUp__input" placeholder="Enter Password" required />
+                            <input type="password" name='password' className="signUp__input" placeholder="Enter Password" required onBlur={handlePasswordBlur} />
+                            {
+                                error && <p style={{ color: 'red' }}><small>Password Must at least 6 Character</small></p>
+                            }
                         </div>
                         <div className="signUp__field">
                             <FontAwesomeIcon icon={faPhone} className="signIn__icon" />

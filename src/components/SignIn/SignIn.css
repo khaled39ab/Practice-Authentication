@@ -169,7 +169,7 @@ body {
 .signIn-social__icon {
     font-size: larger;
 	padding: 20px 10px;
-	color: #fff;
+	/* color: black; */
 	text-decoration: none;	
 	text-shadow: 0px 0px 8px #7875B5;
     cursor: pointer;
