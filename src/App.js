@@ -8,25 +8,38 @@ import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 
 function App() {
+  /* 
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <div>Hello</div>
+      element: <Home />
+    },
+    {
+      path: '/signIn',
+      element: <SignIn />
+    },
+    {
+      path: '/signUp',
+      element: <SignUp />
+    },
+    {
+      path: '/home',
+      element: <Home />
     }
   ]);
-
+ */
   return (
     <div>
       <Navbar />
-      {/* 
+
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/signIn' element={<SignIn />}></Route>
         <Route path='/signUp' element={<SignUp />}></Route>
       </Routes>
-       */}
 
-      <RouterProvider router={router}></RouterProvider>
+
+      {/* <RouterProvider router={router}></RouterProvider> */}
       <Footer></Footer>
     </div>
   );
