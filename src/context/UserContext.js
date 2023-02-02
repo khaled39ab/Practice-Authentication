@@ -1,9 +1,10 @@
 import React, { createContext } from 'react';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
-const UserContext = ({children}) => {
-    const handleAuth = {};
+const UserContext = ({ children }) => {
+    const user = { displayName: 'Emran' }
+    const handleAuth = {user};
 
     return (
         <AuthContext.Provider value={handleAuth}>

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import UserContext, { AuthContext } from '../../context/UserContext';
 import './Navbar.css'
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext)
+
     return (
         <nav className="navbar">
             <div className="navbar-container">
@@ -26,6 +29,7 @@ const Navbar = () => {
                         <li>
                             <NavLink to="/contact">Contact</NavLink>
                         </li>
+                        {user?.displayName && <span>Hello {user.displayName}</span>}
                     </ul>
                 </div>
             </div>
