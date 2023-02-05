@@ -1,14 +1,19 @@
 import { faArrowRight, faAt, faLock, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/UserContext';
 import auth from '../../firebase/firebase.init';
 import './SignUp.css'
 
 const SignUp = () => {
     const [error, setError] = useState(false);
     const [signUpError, setSignUpError] = useState('');
+
+    const navigate = useNavigate();
+
+    const { signUp } = useContext(AuthContext)
 
     /* 
     ===============================================================================
@@ -37,13 +42,15 @@ const SignUp = () => {
         const password = form.password.value;
         const phone = form.phone.value;
 
-        createUserWithEmailAndPassword(auth, email, password)
+        // createUserWithEmailAndPassword(auth, email, password)
+        signUp(email, password)
             .then(res => {
                 updateProfile(auth.currentUser, {
-                    displayName: name, phoneNumber: phone //can not add/store phone number without authenticate with phone number
+                    displayName: name, phoneNumber: phone //can not add/store phone number without authenticate with phone number method
                 })
                 sendEmailVerification(auth.currentUser);
-                alert('Check Your Email and Verify')
+                alert('Check Your Email and Verify');
+                navigate('/')
             })
             .catch(err => {
                 setSignUpError(err.message);

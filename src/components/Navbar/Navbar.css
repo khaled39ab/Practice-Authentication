@@ -60,12 +60,23 @@ body {
   background-color: #574c4c;
 }
 
+.user-info{
+  padding-left: 5px;
+  border-radius: 3px;
+  background-color: rgb(238, 180, 184, 0.6);
+}
+
+.user-info:hover{
+  background-color: rgb(238, 180, 184, 1);
+}
+
 .btn-signOut{
   border: none;
   border-radius: 5px;
   padding: 5px;
-  background-color: rgb(238, 180, 184, 0.4);;
-  font-weight: 700;
+  background-color: rgb(238, 180, 184, 0.4);
+  font-weight: 600;
+  font-size: .9rem;
   cursor: pointer;
 }
 

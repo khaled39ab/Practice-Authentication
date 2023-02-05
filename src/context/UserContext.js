@@ -1,4 +1,4 @@
-import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.init';
 
@@ -7,10 +7,20 @@ export const AuthContext = createContext();
 const UserContext = ({ children }) => {
     const [user, setUser] = useState({});
 
+    /* 
+   ===============================================================================
+   *************************           Provider          *************************
+   ===============================================================================
+   */
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
+    /* 
+   ===============================================================================
+   *************************        Sign In method       *************************
+   ===============================================================================
+   */
     const googleSignIn = () => {
         return signInWithPopup(auth, googleProvider)
     }
@@ -27,6 +37,21 @@ const UserContext = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
+    /* 
+    ===============================================================================
+    *************************       Sign Up Method        *************************
+    ===============================================================================
+    */
+    const signUp = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
+
+
+    /* 
+    ===============================================================================
+    *************************           Sign Out          *************************
+    ===============================================================================
+    */
     const logOut = () => {
         signOut(auth)
     }
@@ -37,10 +62,17 @@ const UserContext = ({ children }) => {
         })
 
         return () => unsubscribe()
-        
+
     }, [])
 
-    const handleAuthInfo = { user, facebookSignIn, googleSignIn, githubSignIn, passwordSignIn, logOut };
+
+    /* 
+    ===============================================================================
+    *************************                             *************************
+    ===============================================================================
+    */
+    const handleAuthInfo = { user, facebookSignIn, googleSignIn, githubSignIn, passwordSignIn, logOut, signUp };
+
 
     return (
         <AuthContext.Provider value={handleAuthInfo}>
