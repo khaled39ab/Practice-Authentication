@@ -5,7 +5,7 @@ import { faAnglesRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons
 // import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { sendPasswordResetEmail } from "firebase/auth";
 import './SignIn.css'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import auth from '../../firebase/firebase.init';
 import { AuthContext } from '../../context/UserContext';
 
@@ -17,6 +17,8 @@ const SignIn = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
 
     const { facebookSignIn, googleSignIn, githubSignIn, passwordSignIn } = useContext(AuthContext);
 
@@ -31,6 +33,7 @@ const SignIn = () => {
             .then(res => {
                 const user = res.user;
                 console.log(user);
+                navigate('/');
             })
             .catch(err => {
                 console.error(err.message);
@@ -48,6 +51,7 @@ const SignIn = () => {
             .then(res => {
                 const user = res.user;
                 console.log(user);
+                navigate('/');
             })
             .catch(err => {
                 console.error(err.message);
@@ -66,6 +70,7 @@ const SignIn = () => {
             .then(res => {
                 const user = res.user;
                 console.log(user);
+                navigate('/');
             })
             .catch(err => {
                 console.error(err.message);
@@ -86,6 +91,7 @@ const SignIn = () => {
             .then(res => {
                 const user = res.user;
                 console.log(user);
+                navigate('/');
             })
             .catch(err => {
                 console.error(err.message);
