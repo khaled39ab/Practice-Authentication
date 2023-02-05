@@ -30,7 +30,7 @@ const Navbar = () => {
                         {
                             user?.uid ?
                                 <li>
-                                    <NavLink to={''}>{user.displayName.split(' ')[0]} <button onClick={handleSignOut}>Sign out</button></NavLink>
+                                    <NavLink to={''}>{user.displayName.split(' ')[0]} <button className='btn-signOut' onClick={handleSignOut}>Sign Out</button></NavLink>
                                 </li> :
                                 <>
                                     <li>
