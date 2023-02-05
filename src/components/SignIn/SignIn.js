@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faAnglesRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -6,12 +6,15 @@ import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, sendPassw
 import './SignIn.css'
 import { NavLink } from 'react-router-dom';
 import auth from '../../firebase/firebase.init';
+import { AuthContext } from '../../context/UserContext';
 
 const SignIn = () => {
 
-    const GoogleProvider = new GoogleAuthProvider();
+    // const GoogleProvider = new GoogleAuthProvider();
     const GithubProvider = new GithubAuthProvider();
-    const FacebookProvider = new FacebookAuthProvider();
+    // const FacebookProvider = new FacebookAuthProvider();
+
+    const { facebookSignIn, googleSignIn } = useContext(AuthContext);
 
     /* 
     ===============================================================================
@@ -19,7 +22,8 @@ const SignIn = () => {
     ===============================================================================
     */
     const handleGoogleSignIn = () => {
-        signInWithPopup(auth, GoogleProvider)
+        // signInWithPopup(auth, GoogleProvider)
+        googleSignIn()
             .then(res => {
                 const user = res.user;
                 console.log(user);
@@ -35,7 +39,8 @@ const SignIn = () => {
     ===============================================================================
     */
     const handleFacebookSignIn = () => {
-        signInWithPopup(auth, FacebookProvider)
+        // signInWithPopup(auth, FacebookProvider)
+        facebookSignIn()
             .then(res => {
                 const user = res.user;
                 console.log(user);
