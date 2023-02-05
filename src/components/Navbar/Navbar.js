@@ -4,7 +4,11 @@ import { AuthContext } from '../../context/UserContext';
 import './Navbar.css'
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleSignOut = () =>{
+        logOut();
+    }
 
     return (
         <nav className="navbar">
@@ -18,18 +22,25 @@ const Navbar = () => {
                             <NavLink to="/">Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/signIn">Sign In</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/signUp">Sign Up</NavLink>
-                        </li>
-                        <li>
                             <NavLink to="/about">About</NavLink>
                         </li>
                         <li>
                             <NavLink to="/contact">Contact</NavLink>
                         </li>
-                        {user?.displayName && <span>Hello {user.displayName}</span>}
+                        {
+                            user?.uid ?
+                                <li>
+                                    <NavLink to={''}>{user.displayName.split(' ')[0]} <button onClick={handleSignOut}>Sign out</button></NavLink>
+                                </li> :
+                                <>
+                                    <li>
+                                        <NavLink to="/signIn">Sign In</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/signUp">Sign Up</NavLink>
+                                    </li>
+                                </>
+                        }
                     </ul>
                 </div>
             </div>
