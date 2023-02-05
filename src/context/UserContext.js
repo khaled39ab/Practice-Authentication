@@ -1,4 +1,4 @@
-import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import React, { createContext, useState } from 'react';
 import auth from '../firebase/firebase.init';
 
@@ -23,7 +23,11 @@ const UserContext = ({ children }) => {
         return signInWithPopup(auth, githubProvider)
     }
 
-    const handleAuthInfo = { user, facebookSignIn, googleSignIn, githubSignIn };
+    const passwordSignIn = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
+    const handleAuthInfo = { user, facebookSignIn, googleSignIn, githubSignIn, passwordSignIn };
 
     return (
         <AuthContext.Provider value={handleAuthInfo}>

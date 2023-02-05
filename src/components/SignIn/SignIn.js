@@ -14,7 +14,10 @@ const SignIn = () => {
     // const GithubProvider = new GithubAuthProvider();
     // const FacebookProvider = new FacebookAuthProvider();
 
-    const { facebookSignIn, googleSignIn, githubSignIn } = useContext(AuthContext);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const { facebookSignIn, googleSignIn, githubSignIn, passwordSignIn } = useContext(AuthContext);
 
     /* 
     ===============================================================================
@@ -70,10 +73,29 @@ const SignIn = () => {
 
     /* 
     ===============================================================================
+    *************************           Sign In           *************************
+    ===============================================================================
+    */
+    const handleSignIn = e => {
+        e.preventDefault();
+        // const email = e.target.email.value;
+        // const password = e.target.password.value;
+        // signInWithEmailAndPassword(auth, email, password)
+        passwordSignIn(email, password)
+            .then(res => {
+                const user = res.user;
+                console.log(user);
+            })
+            .catch(err => {
+                console.error(err.message);
+            })
+    }
+
+    /* 
+    ===============================================================================
     *************************       Forget Password       *************************
     ===============================================================================
     */
-    const [email, setEmail] = useState('');
 
     const handleForgetPassword = () => {
         if (email) {
@@ -84,24 +106,6 @@ const SignIn = () => {
         } else {
             alert('Enter Your Email')
         }
-    }
-
-    /* 
-    ===============================================================================
-    *************************           Sign In           *************************
-    ===============================================================================
-    */
-    const handleSignIn = e => {
-        e.preventDefault();
-        const password = e.target.password.value;
-        signInWithEmailAndPassword(auth, email, password)
-            .then(res => {
-                const user = res.user;
-                console.log(user);
-            })
-            .catch(err => {
-                console.error(err.message);
-            })
     }
 
     return (
@@ -115,7 +119,7 @@ const SignIn = () => {
                         </div>
                         <div className="signIn__field">
                             <FontAwesomeIcon icon={faLock} className="signIn__icon" />
-                            <input type="password" name='password' className="signIn__input" placeholder="Password" />
+                            <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} className="signIn__input" placeholder="Password" />
                         </div>
                         <button className="signIn-button signIn__submit" type='submit'>
                             <span className="signIn-button__text">Sign In Now</span>
