@@ -17,6 +17,7 @@ const SignIn = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     const navigate = useNavigate();
 
@@ -32,11 +33,11 @@ const SignIn = () => {
         googleSignIn()
             .then(res => {
                 const user = res.user;
-                console.log(user);
+                // console.log(user);
                 navigate('/');
             })
             .catch(err => {
-                console.error(err.message);
+                setError(err.message);
             })
     }
 
@@ -50,11 +51,11 @@ const SignIn = () => {
         facebookSignIn()
             .then(res => {
                 const user = res.user;
-                console.log(user);
+                // console.log(user);
                 navigate('/');
             })
             .catch(err => {
-                console.error(err.message);
+                setError(err.message);
             })
 
     }
@@ -69,11 +70,11 @@ const SignIn = () => {
         githubSignIn()
             .then(res => {
                 const user = res.user;
-                console.log(user);
+                // console.log(user);
                 navigate('/');
             })
             .catch(err => {
-                console.error(err.message);
+                setError(err.message);
             })
     }
 
@@ -90,11 +91,11 @@ const SignIn = () => {
         passwordSignIn(email, password)
             .then(res => {
                 const user = res.user;
-                console.log(user);
+                // console.log(user);
                 navigate('/');
             })
             .catch(err => {
-                console.error(err.message);
+                setError(err.message);
             })
     }
 
@@ -122,12 +123,15 @@ const SignIn = () => {
                     <form className="signIn" onSubmit={handleSignIn}>
                         <div className="signIn__field">
                             <FontAwesomeIcon icon={faUser} className="signIn__icon" />
-                            <input type="text" name='email' className="signIn__input" placeholder="User name / Email" onChange={e => setEmail(e.target.value)} />
+                            <input type="text" name='email' className="signIn__input" placeholder="User name / Email" onChange={e => setEmail(e.target.value)} required/>
                         </div>
                         <div className="signIn__field">
                             <FontAwesomeIcon icon={faLock} className="signIn__icon" />
-                            <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} className="signIn__input" placeholder="Password" />
+                            <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} className="signIn__input" placeholder="Password" required/>
                         </div>
+                        {
+                            error && <div className='error-message'>({error.split('/')[1]}</div>
+                        }
                         <button className="signIn-button signIn__submit" type='submit'>
                             <span className="signIn-button__text">Sign In Now</span>
                             <span className="signIn-button__icon">

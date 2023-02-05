@@ -10,7 +10,7 @@ const Home = () => {
             <div>
                 <h2>User: {user?.displayName}</h2>
                 <h3>Email: {user?.email}</h3>
-                <img src="" alt="" />
+                <img src={user?.photoURL} alt="" />
             </div>
         </div>
     );
