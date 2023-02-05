@@ -11,10 +11,10 @@ import { AuthContext } from '../../context/UserContext';
 const SignIn = () => {
 
     // const GoogleProvider = new GoogleAuthProvider();
-    const GithubProvider = new GithubAuthProvider();
+    // const GithubProvider = new GithubAuthProvider();
     // const FacebookProvider = new FacebookAuthProvider();
 
-    const { facebookSignIn, googleSignIn } = useContext(AuthContext);
+    const { facebookSignIn, googleSignIn, githubSignIn } = useContext(AuthContext);
 
     /* 
     ===============================================================================
@@ -57,7 +57,8 @@ const SignIn = () => {
     ===============================================================================
     */
     const handleGithubSignIn = () => {
-        signInWithPopup(auth, GithubProvider)
+        // signInWithPopup(auth, GithubProvider)
+        githubSignIn()
             .then(res => {
                 const user = res.user;
                 console.log(user);
