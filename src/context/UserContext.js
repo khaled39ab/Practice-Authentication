@@ -5,6 +5,7 @@ import auth from '../firebase/firebase.init';
 export const AuthContext = createContext();
 
 const UserContext = ({ children }) => {
+    // const [user, setUser] = useState(null); //if default value is null then user will load delay and route stuck with protected route
     const [user, setUser] = useState({});
 
     /* 

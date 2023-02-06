@@ -9,6 +9,7 @@ import SignUp from './components/SignUp/SignUp';
 import './App.css';
 import Gift from './components/Gift/Gift';
 import RequireAuth from './route/RequireAuth';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/contact' element={<Contact />}></Route>
         <Route path='/signIn' element={<SignIn />}></Route>
         <Route path='/signUp' element={<SignUp />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
 
       <Footer></Footer>
