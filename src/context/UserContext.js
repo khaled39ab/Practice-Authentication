@@ -57,6 +57,11 @@ const UserContext = ({ children }) => {
         signOut(auth)
     }
 
+    /* 
+    ===============================================================================
+    *************************      State Change Auth      *************************
+    ===============================================================================
+    */
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
@@ -69,7 +74,7 @@ const UserContext = ({ children }) => {
 
     /* 
     ===============================================================================
-    *************************                             *************************
+    *************************          Provider           *************************
     ===============================================================================
     */
     const handleAuthInfo = { user, facebookSignIn, googleSignIn, githubSignIn, passwordSignIn, logOut, signUp };
