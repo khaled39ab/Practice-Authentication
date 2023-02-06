@@ -32,7 +32,7 @@ const SignIn = () => {
         // signInWithPopup(auth, GoogleProvider)
         googleSignIn()
             .then(res => {
-                const user = res.user;
+                // const user = res.user;
                 // console.log(user);
                 navigate('/');
             })
@@ -50,7 +50,7 @@ const SignIn = () => {
         // signInWithPopup(auth, FacebookProvider)
         facebookSignIn()
             .then(res => {
-                const user = res.user;
+                // const user = res.user;
                 // console.log(user);
                 navigate('/');
             })
@@ -69,7 +69,7 @@ const SignIn = () => {
         // signInWithPopup(auth, GithubProvider)
         githubSignIn()
             .then(res => {
-                const user = res.user;
+                // const user = res.user;
                 // console.log(user);
                 navigate('/');
             })
@@ -90,7 +90,7 @@ const SignIn = () => {
         // signInWithEmailAndPassword(auth, email, password)
         passwordSignIn(email, password)
             .then(res => {
-                const user = res.user;
+                // const user = res.user;
                 // console.log(user);
                 navigate('/');
             })

@@ -7,6 +7,7 @@ import Contact from './components/Contact/Contact';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import './App.css';
+import Gift from './components/Gift/Gift';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />}></Route>
+        <Route path='/gift' element={<Gift />}></Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/contact' element={<Contact />}></Route>
         <Route path='/signIn' element={<SignIn />}></Route>

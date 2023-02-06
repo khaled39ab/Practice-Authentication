@@ -6,7 +6,7 @@ import './Navbar.css'
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
-    const handleSignOut = () =>{
+    const handleSignOut = () => {
         logOut();
     }
 
@@ -20,6 +20,9 @@ const Navbar = () => {
                     <ul>
                         <li>
                             <NavLink to="/">Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/gift">Gift</NavLink>
                         </li>
                         <li>
                             <NavLink to="/about">About</NavLink>
