@@ -5,11 +5,14 @@ import { faAnglesRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons
 // import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { sendPasswordResetEmail } from "firebase/auth";
 import './SignIn.css'
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase/firebase.init';
 import { AuthContext } from '../../context/UserContext';
 
 const SignIn = () => {
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     // const GoogleProvider = new GoogleAuthProvider();
     // const GithubProvider = new GithubAuthProvider();
@@ -34,7 +37,7 @@ const SignIn = () => {
             .then(res => {
                 // const user = res.user;
                 // console.log(user);
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 setError(err.message);
@@ -52,7 +55,7 @@ const SignIn = () => {
             .then(res => {
                 // const user = res.user;
                 // console.log(user);
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 setError(err.message);
@@ -71,7 +74,7 @@ const SignIn = () => {
             .then(res => {
                 // const user = res.user;
                 // console.log(user);
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 setError(err.message);
@@ -92,7 +95,7 @@ const SignIn = () => {
             .then(res => {
                 // const user = res.user;
                 // console.log(user);
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 setError(err.message);
@@ -123,11 +126,11 @@ const SignIn = () => {
                     <form className="signIn" onSubmit={handleSignIn}>
                         <div className="signIn__field">
                             <FontAwesomeIcon icon={faUser} className="signIn__icon" />
-                            <input type="text" name='email' className="signIn__input" placeholder="User name / Email" onChange={e => setEmail(e.target.value)} required/>
+                            <input type="text" name='email' className="signIn__input" placeholder="User name / Email" onChange={e => setEmail(e.target.value)} required />
                         </div>
                         <div className="signIn__field">
                             <FontAwesomeIcon icon={faLock} className="signIn__icon" />
-                            <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} className="signIn__input" placeholder="Password" required/>
+                            <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} className="signIn__input" placeholder="Password" required />
                         </div>
                         {
                             error && <div className='error-message'>({error.split('/')[1]}</div>

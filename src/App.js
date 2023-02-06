@@ -8,6 +8,7 @@ import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import './App.css';
 import Gift from './components/Gift/Gift';
+import RequireAuth from './route/RequireAuth';
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/gift' element={<Gift />}></Route>
+        <Route path='/gift' element={<RequireAuth>
+          <Gift />
+        </RequireAuth>}></Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/contact' element={<Contact />}></Route>
         <Route path='/signIn' element={<SignIn />}></Route>
